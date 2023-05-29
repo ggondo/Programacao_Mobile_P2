@@ -1,14 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import react from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { Button , Input , Image } from 'react-native-elements';
+import React , { useState } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button , Input , ListItem } from 'react-native-elements';
 
 export default function App() {
+
+    const [ mensagem , setMensagem ] = useState("")
+
+    async function buscarFrase(){
+      if( mensagem == "" ) {
+          console.log("Digite uma frase!")
+          setMensagem("")
+      }
+      try{
+        const response = await index.get()
+
+      }catch(error){
+        console.log("ERRO" + error)
+      }
+  
+    }
+
   return (
      <View style={styles.container}> 
-        <Image
-            source={require('./assets/figura1.jpg')}
-        />  
         <View style={styles.topBar}>
             <Text style={styles.title}>ChatGPT Responde:</Text>
             <StatusBar style="auto" />
@@ -18,12 +32,23 @@ export default function App() {
           <Input 
                placeholder="Digite aqui a sua frase para o ChatGPT!" 
                style={styles.frase}
+               value={mensagem}
+               onChangeText={(mensagem) => setMensagem(mensagem)}
           />
         </View>
         <Button 
         title="Enviar"
         style={styles.botao}
+        onPress={buscarFrase}
         />
+
+        <FlatList>
+          <ListItem>
+
+          </ListItem>
+        </FlatList>
+          
+        
     </View>
    
   );
@@ -49,7 +74,8 @@ const styles = StyleSheet.create({
   },
   frase: {
     marginTop: 60,
-    textAlign: "center"
+    textAlign: "center",
+    outlineStyle: 'none'
   },
   botao: {
     height: 100,
