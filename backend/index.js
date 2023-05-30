@@ -1,16 +1,37 @@
+require('dotenv').config()
 const express = require('express')
+const { Configuration, OpenAIApi } = require ('openai')
+const axios = require("axios")
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY
+})
+const openai = new OpenAIApi(configuration);
+
 const app = express()
-//middleware
 app.use(express.json())
 
-//const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+const cors = require('cors');
+app.use(express.json())
+app.use(cors());
 
-const { OPENAI_API_KEY } = process.env
-
-app.get('/hello', (req, res) =>{
-    res.json({mensagem: "Hello direto do Back end"})
+app.post('/sentimentos', (req, res) => {
+  openai.createCompletion({
+    model: 'text-davinci-003',
+    prompt: `Qual o sentimento deste texto usando apenas uma palavra (Positivo, Negativo ou Neutro): ${req.body.texto}`,
+    temperature: 0
+  })
+  .then(chatGPTResponse => {
+    res.json({
+      sentimento: chatGPTResponse.data.choices[0].text
+    })
+  })
 })
 
-const porta = 4000 || 4000
 
-app.listen(4000, () => console.log (`Servidor ok. Porta ${porta}`))
+
+const porta = process.env.PORT || 4000
+
+app.listen(
+  porta,
+  () => console.log(`Servidor on. Porta: ${porta}`)
+)
