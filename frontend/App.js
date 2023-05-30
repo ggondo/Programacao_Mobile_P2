@@ -2,20 +2,23 @@ import { StatusBar } from 'expo-status-bar';
 import React , { useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Button , Input , ListItem } from 'react-native-elements';
-import axios from 'axios'
+import axios from 'axios';
 
 export default function App() {
 
-    const [mensagem, setMensagem] = useState('')
+    const [texto, setTexto] = useState('')
+    const [textos, setTextos] = useState([])
       
         async function buscarFrase(){
       
         try{
+
           const response =  await axios
-          .post('http://localhost:4000/sentimentos', mensagem)
-          setMensagem(response.data.sentimento);
+          .post('http://localhost:4000/sentimentos', {texto})
+          setTexto(response.data.sentimento);
            
           }catch(error){
+            
              console.log('ERRO', error);
            };
         }
@@ -31,8 +34,8 @@ export default function App() {
           <Input 
                placeholder="Digite aqui a sua frase para o ChatGPT!" 
                style={styles.frase}
-               onChangeText={(mensagem) => setMensagem(mensagem)}
-               value={mensagem}
+               onChangeText={(texto) => setTexto(texto)}
+               value={texto}
           />
         </View>
         <Button 
@@ -43,12 +46,12 @@ export default function App() {
         <View>
           <FlatList
             
-            //data={mensagem}
-            //  renderItem={(mensagem) => (
-              //  <View style={styles.itemNaLista}>
-              //      <Text>{mensagem.item}</Text>
-             //   </View>
-            //  )}
+            data={textos}
+             renderItem={(texto) => (
+              <View style={styles.itemNaLista}>
+              <Text>{texto.item}</Text>
+             </View>
+            )}
           />
         </View>   
         
