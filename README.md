@@ -14,8 +14,8 @@
 
 ⚠️ Necessário já ter instalado o React Native e React.js ⚠️
 
-+ cd 'pasta do projeto' 
-+ npm install react-native-elements 
-+ npm install cors 
-+ npm install axios 
-+ npm install npm start
+1. cd 'pasta do projeto' 
+2. npm install react-native-elements 
+3. npm install cors 
+4. npm install axios 
+5. npm install npm start
