@@ -10,7 +10,7 @@
 + Gustavo Gondo, RA 2040482023012 
 + Marco Antonio P. A. Camargo, RA 2040482113013 
 + Phillipe Zampini S. Caldeira, RA 2040482113044
-+ Marcelo Acerbi, RA
++ Marcelo Acerbi, RA 2040482223027
 
 ### Instalação 🔧
 
