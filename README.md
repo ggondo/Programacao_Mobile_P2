@@ -1,4 +1,4 @@
-<h1>Projeto final - Programação para Dispositivos Móveis - Fatec Ipiranga </h1>
+<h1>Projeto Final - Programação para Dispositivos Móveis - Fatec Ipiranga </h1>
 
 ## Docente: Prof. Me. Rodrigo Bossini Tavares Moreira
 
