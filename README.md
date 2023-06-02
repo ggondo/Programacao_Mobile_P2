@@ -1,4 +1,4 @@
-<h1>Projeto final - Programação de Dispositivos Móveis - Fatec Ipiranga </h1>
+<h1>Projeto final - Programação para Dispositivos Móveis - Fatec Ipiranga </h1>
 
 ## Docente: Prof. Me. Rodrigo Bossini Tavares Moreira
 
@@ -9,7 +9,7 @@
 + Ed Carlos Santos e Silva, RA 
 + Gustavo Gondo, RA 2040482023012 
 + Marco Antonio P. A. Camargo, RA 2040482113013 
-+ Phillipe Zampini S. Caldeira, RA 
++ Phillipe Zampini S. Caldeira, RA 2040482113044
 + Marcelo Acerbi, RA
 
 ### Instalação 🔧
